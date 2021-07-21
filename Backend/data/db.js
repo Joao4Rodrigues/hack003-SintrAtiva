@@ -45,7 +45,7 @@ async function insertUser(user) {
 
 async function getUser(user_id) {
     const collection = await getCollection(DB_NAME, "users")
-    const res = await collection.FindOne({_id: mongodb.ObjectId(user_id)})
+    const res = await collection.findOne({_id: mongodb.ObjectId(user_id)})
     return res;
 }
 

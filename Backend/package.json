@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon express.js",
-    "populate": "node populate.js && node sports.js"
+    "populate": "node populate.js && node sports.js && node comments.js"
   },
   "author": "",
   "license": "ISC",

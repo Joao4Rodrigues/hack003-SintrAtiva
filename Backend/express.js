@@ -3,8 +3,8 @@ const express = require('express');
     insertUser,
     getUser,
     insertSports,
-    getSports,
     getSport,
+    getSports,
     insertComment,
     getComment,
     getComments
