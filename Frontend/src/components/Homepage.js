@@ -42,11 +42,42 @@ function Homepage() {
     )
 }
 
-function Events() {
+
+function Events(){
+    const [events, setEvents] = useState([])
+    async function fetchEvents() {
+        const res = await fetch('/api/events')
+        const resBody = await res.json();
+        setEvents(resBody.events)
+        console.log(resBody.events)
+    }
+    useEffect(() => {
+        fetchEvents()
+    }, [])
+
     return (
-        <div>
-            <h2 >Eventos</h2>
-        </div>
+        <>
+            <h2>Eventos</h2>
+            <div>
+                {
+                    events.map(event => (
+                        <div
+                            key={event._id}
+                        >
+                            <h4>{event.event}</h4>
+                            <h6>{event.date}</h6>
+                            <img src={event.image} />
+                            <section>{event.info}</section>
+                            
+                            {/* <Link to={`/sports/${sport._id}`}>
+                           
+                           </Link> */}
+                        </div>
+                    ))
+                }
+            </div>
+            
+        </>
     )
 }
 

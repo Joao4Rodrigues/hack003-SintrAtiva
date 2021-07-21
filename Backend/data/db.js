@@ -55,6 +55,11 @@ async function insertSports(sport) {
     const res = await collection.insertOne(sport)
     return res.insertId;
 }
+async function insertEvents(event) {
+    const collection = await getCollection(DB_NAME, "events")
+    const res = await collection.insertOne(event)
+    return res.insertId;
+}
 
 async function getSports() {
     const collection = await getCollection(DB_NAME, 'sports')
@@ -63,6 +68,14 @@ async function getSports() {
 
     }).sort({name: 1}).toArray()
     return sports;
+}
+async function getEvents() {
+    const collection = await getCollection(DB_NAME, 'events')
+    const events = await collection.find({}, {
+        projection: {event: 1, image: 1, date: 1, info: 1}
+
+    }).toArray()
+    return events;
 }
 async function getSportById(id) {
     const collection = await getCollection(DB_NAME, "sports");
@@ -105,6 +118,7 @@ async function search(text) {
 }
 module.exports = {
     insertUser,
+    insertEvents,
     getUser,
     insertSports,
     getSports,
@@ -113,5 +127,6 @@ module.exports = {
     addComment,
     closeConnection,
     getSportById,
-    search
+    search,
+    getEvents
 }

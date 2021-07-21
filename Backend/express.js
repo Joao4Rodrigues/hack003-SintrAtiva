@@ -5,7 +5,8 @@ const express = require('express');
     getSportById,
     getSports,
     findComments,
-    addComment
+    addComment,
+    getEvents
 } = require('./data/db');
 
 const server = express();
@@ -74,7 +75,10 @@ server.post("/api/sports/:id/comments", async (req, res) => {
     res.sendStatus(201)
 })
 
-
+server.get('/api/events', async (req, res) => {
+    
+    res.status(200).json({ events: await getEvents()});
+})
 
 server.listen(PORT, () => console.log('À escuta em ' + PORT));
 
