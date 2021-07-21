@@ -3,8 +3,8 @@ const express = require('express');
     insertUser,
     getUser,
     insertSports,
-    getSports,
     getSport,
+    getSports,
     insertComment,
     getComment,
     getComments
@@ -13,7 +13,7 @@ const express = require('express');
 const server = express();
 const PORT = 3301;
 
-server.use(express.join());
+server.use(express.json());
 
 server.get('/api/', (req, res) => {
     res.status(200).json({
@@ -32,6 +32,11 @@ server.post('/api/user', async (req, res) => {
 })
 
 server.get('/api/sport/:sport', async (req, res) => {
+    const sports = await getSport(req.params.sport);
+    res.status(200).json({ sports });
+})
+
+server.get('/api/sport', async (req, res) => {
     const sports = await getSport(req.body);
     res.status(200).json({ sports });
 })

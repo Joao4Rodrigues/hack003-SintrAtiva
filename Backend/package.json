@@ -5,15 +5,19 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon express.js",
-    "populate": "node populate.js && node sports.js"
+    "populate": "node populate.js && node sports.js && node comments.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.1",
     "mongodb": "^4.0.1",
     "pkg": "^5.3.0",
     "populate": "^5.0.1"
   },
   "keywords": [],
-  "description": ""
+  "description": "",
+  "devDependencies": {
+  "nodemon": "^2.0.12"
+  }
 }
