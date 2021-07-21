@@ -1,25 +1,26 @@
 import React from './React'
-import logo from './logo.svg';
 import './App.css';
+import {
+  Switch,
+  Route,
+  useLocation
+}
+from 'react-router-dom';
+import Homepage from './components/Homepage';
 
 
 function App() {
+  const location = useLocation()
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Homepage pagina={location.pathname} />
+      <Switch>
+        <Route exact path='/' children={<Events />} />
+        
+        <Route path='/sports/:id' children={<Sports />} />
+        <Route path='/events/:id' children={<Events />} />
+      </Switch>
+      
     </div>
   );
 }
