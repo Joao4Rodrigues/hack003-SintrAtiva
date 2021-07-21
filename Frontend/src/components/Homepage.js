@@ -65,9 +65,8 @@ function Events(){
                             key={event._id}
                         >
                             <h4>{event.event}</h4>
-                            <h6>{event.date}</h6>
+                            <h5>{event.date}</h5>
                             <img src={event.image} />
-                            <section>{event.info}</section>
                             
                             {/* <Link to={`/sports/${sport._id}`}>
                            
