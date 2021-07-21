@@ -17,7 +17,6 @@ function Search() {
     }
 
     function onInputChange(event) {
-        console.log(event.target.value)
         setText(event.target.value)
     }
 

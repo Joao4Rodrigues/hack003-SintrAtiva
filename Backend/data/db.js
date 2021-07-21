@@ -77,17 +77,21 @@ async function insertComment(comment) {
     return res.insertId;
 }
 
-async function getComments() {
-    const collection = await getCollection(DB_NAME, "comments")
-    const res = await collection.find().toArray();
-    return res;
+async function findComments(id) {
+    const collection = await getCollection(DB_NAME, "comments");
+    const comments = await collection.find({ sportId: ObjectId(id) }).toArray()
+
+    return comments;
 }
 
-async function getComment(comment_id) {
-    const collection = await getCollection(DB_NAME, "comments")
-    const res = await collection.findOne({_id: mongodb.ObjectId(comment_id)})
-    return res;
+async function addComment(id, comment) {
+    const collection = await getCollection(DB_NAME, "comments");
+    const comments = await collection.insertOne({ sportId: ObjectId(id), ...comment, date: new Date()})
+    
+    return comments;
 }
+
+
 async function search(text) {
     const collection = await getCollection(DB_NAME, 'sports')
     const sports = await collection.find({
@@ -105,8 +109,8 @@ module.exports = {
     insertSports,
     getSports,
     insertComment,
-    getComment,
-    getComments,
+    findComments,
+    addComment,
     closeConnection,
     getSportById,
     search

@@ -1,8 +1,8 @@
 import { useParams, useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
-// import { Formik, Field } from 'formik';
+import { Formik, Field } from 'formik';
 import React from 'react';
-// import Moment from 'react-moment';
+import Moment from 'react-moment';
 
 function Sports() {
   const params = useParams();
@@ -25,143 +25,98 @@ function Sports() {
     fetchSport(params.id)
   }, [params])
 
+  const [comments, setComments] = useState([])
 
-//   const [comentarios, setComentarios] = useState([])
+  async function fetchComments() {
+    const res = await fetch(`/api/sports/${params.id}/comments`)
+    const resBody = await res.json();
+    setComments(resBody.comments)
+  }
+  useEffect(() => {
+    fetchComments()
+  }, [])
 
-//   async function fetchComentarios() {
-//     const res = await fetch(`/api/livros/${params.id}/comentarios`)
-//     const resBody = await res.json();
-//     setComentarios(resBody.comentarios)
-//   }
-//   useEffect(() => {
-//     fetchComentarios()
-//   }, [])
 
     return (
       <div >
         <div >
             <p>{sport.name}</p>
 
-          {/* <button className={styles.favorito} onClick={
-            livro.lido ?
-              async () => {
-                await removeChecklist(livro._id)
-                await fetchLivro(params.id)
-              }
-              :
-              async () => {
-                await addChecklist(livro._id)
-                await fetchLivro(params.id)
-              }} >{livro.lido ? <BiListCheck size={25} /> : <BiListPlus size={25} />}
-            {livro.lido ? 'Remover da Checklist' : 'Adicionar à Checklist'}
-
-          </button> */}
-          {/* <Comentarios comentarios={comentarios} id={sport._id} />
-          <AddComentario onAdd={async () => await fetchComentarios()} id={livro._id} /> */}
+          
+          <Comments comments={comments} id={sport._id} />
+          <AddComment onAdd={async () => await fetchComments()} id={sport._id} />
         </div>
       </div>
     )
 
     
 }
-// async function addChecklist(id) {
-//   return await fetch(`/api/livros/${id}/checklist`, {
-//     method: "POST",
-//     body: JSON.stringify(),
-//     headers: { "Content-Type": "application/json" }
-//   })
-// }
-// async function removeChecklist(id) {
-//   return await fetch(`/api/livros/${id}/checklist`, {
-//     method: "DELETE",
-//     body: JSON.stringify(),
-//     headers: { "Content-Type": "application/json" }
-//   })
-// }
 
 
-// async function addWishlist(id) {
-//   return await fetch(`/api/livros/${id}/wishlist`, {
-//     method: "POST",
-//     body: JSON.stringify(),
-//     headers: { "Content-Type": "application/json" }
-//   })
-// }
+function Comments({ id, comments }) {
+  return (
+    <>
+      <h2>Comentários</h2>
+      <div >
+        {
+          comments.map(comment => (
+            <div
+              key={comment._id}
+            >
+              <p >{comment.comment} </p>
+              <p ><Moment date={comment.date} format="DD/MM/YYYY" /></p>
+            </div>
+          ))
+        }
+      </div>
+    </>
 
-// async function removeWishlist(id) {
-//   return await fetch(`/api/livros/${id}/wishlist`, {
-//     method: "DELETE",
-//     body: JSON.stringify(),
-//     headers: { "Content-Type": "application/json" }
-//   })
-// }
-
-
-// function Comentarios({ id, comentarios }) {
-//   return (
-//     <>
-//       <h2>Comentários</h2>
-//       <div className={styles.comentarios}>
-//         {
-//           comentarios.map(comentario => (
-//             <div
-//               className={styles.comentario}
-//               key={comentario._id}
-//             >
-//               <p className={styles.boxComentario}>{comentario.comentario} </p>
-//               <p className={styles.boxData}><Moment date={comentario.date} format="DD/MM/YYYY" /></p>
-//             </div>
-//           ))
-//         }
-//       </div>
-//     </>
-
-//   )
-// }
+  )
+}
 
 
-// function AddComentario({ id, onAdd }) {
-//   const history = useHistory()
+function AddComment({ id, onAdd }) {
+  const history = useHistory()
 
-//   return (
-//     <>
-//       <div className={styles.commentsInput}>
-//         <Formik
-//           initialValues={{ comentario: '' }}
+  return (
+    <>
+      <div >
+        <Formik
+          initialValues={{ comment: '' }}
 
 
-//           onSubmit={async (values, { resetForm }) => {
-//             const res = await fetch(`/api/livros/${id}/comentarios`, {
-//               method: "POST",
-//               body: JSON.stringify(values),
-//               headers: { "Content-Type": "application/json" }
-//             })
-//             if (res.status === 201) {
-//               await onAdd()
-//               resetForm()
-//             }
-//           }}
-//         >
-//           {
-//             ({ handleSubmit, touched, errors }) => (
-//               <form className={styles.placeholder} onSubmit={handleSubmit}>
-//                 <Field className={styles.caixaComentario}
-//                   label="Comentario"
-//                   type="text"
-//                   name="comentario"
-//                   placeholder="Escreva aqui o seu comentário"
-//                 /><br></br>
+          onSubmit={async (values, { resetForm }) => {
+            const res = await fetch(`/api/sports/${id}/comments`, {
+              method: "POST",
+              body: JSON.stringify(values),
+              headers: { "Content-Type": "application/json" }
+            })
+            if (res.status === 201) {
+              await onAdd()
+              resetForm()
+            }
+          }}
+        >
+          {
+            ({ handleSubmit, touched, errors }) => (
+              <form onSubmit={handleSubmit}>
+                <Field 
+                  label="Comment"
+                  type="text"
+                  name="comment"
+                  placeholder="Escreva aqui o seu comentário"
+                /><br></br>
 
-//                 <button variant="primary" type="submit">Submeter</button>
-//               </form>
-//             )
-//           }
-//         </Formik>
-//       </div>
-//     </>
-//   )
+                <button variant="primary" type="submit">Submeter</button>
+              </form>
+            )
+          }
+        </Formik>
+      </div>
+    </>
+  )
 
-// }
+}
 
 
 

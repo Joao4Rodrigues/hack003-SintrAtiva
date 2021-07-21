@@ -11,7 +11,7 @@ import Search from "./SearchBar";
 function SearchResults() {
     const location = useLocation()
     const params = useParams()
-    const [results, setResults] = useState({ sports : []})
+    const [results, setResults] = useState({sports : []})
 
     const query = queryString.parse(location.search)
     console.log(location, params, query)

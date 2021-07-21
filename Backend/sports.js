@@ -4,8 +4,8 @@ const {
 } = require('./data/db');
 
 const arr = [
-    { name: 'Volley', location: ''},
-    { name: 'Football', location: 'R. Cidade Desportiva, Queluz'},
+    { name: 'Volley'},
+    { name: 'Football'},
     { name: 'Basketball'},
     { name: 'Tennis'}
 ];
