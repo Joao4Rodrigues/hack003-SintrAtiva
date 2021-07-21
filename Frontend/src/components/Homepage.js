@@ -2,6 +2,7 @@ import { useEffect, useState} from "react";
 import {
     Link, useHistory 
 } from "react-router-dom";
+import "../css/homepage.css"
 import Search from "./SearchBar";
 
 
@@ -21,21 +22,21 @@ function Homepage() {
     return (
         <>
             <Search />
+            <div className="sports-sector">
             <h2>DESPORTOS</h2>
-            <div>
-                {
+            <div className="sports-sections">
+            {
                     sports.map(sport => (
-                        <div
-                            key={sport._id}
-                        >
-                            <Link to={`/sports/${sport._id}`}>
-                           <button>{sport.name}</button>
-                           </Link>
-                        </div>
+                        <Link to={`/sports/${sport._id}`}>
+                           <button className="sport-btn">{sport.name}</button>
+                        </Link>
+
                     ))
                 }
             </div>
-            <div>
+                
+            </div>
+            <div className="event-section">
                 <Events />
             </div>
         </>

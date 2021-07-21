@@ -4,7 +4,7 @@ import {
 } from "react-router-dom";
 import { BsFillHouseDoorFill } from "react-icons/bs";
 
-function NavBar({page}) {
+function NavBar() {
     
     return (
         <>

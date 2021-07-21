@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Formik, Field } from 'formik';
 import React from 'react';
 import Moment from 'react-moment';
+import '../css/sports.css';
 
 function Sports() {
   const params = useParams();
@@ -38,14 +39,14 @@ function Sports() {
 
 
     return (
-      <div >
-        <div >
+        <div className={`${sport.name}-container`}>
+
+        <h2>Feed de {sport.name}</h2>
             <p>{sport.name}</p>
 
           
           <Comments comments={comments} id={sport._id} />
           <AddComment onAdd={async () => await fetchComments()} id={sport._id} />
-        </div>
       </div>
     )
 
