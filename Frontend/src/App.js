@@ -1,4 +1,4 @@
-import React from './React'
+import React from 'react'
 import './App.css';
 import {
   Switch,
@@ -13,12 +13,12 @@ function App() {
   const location = useLocation()
   return (
     <div className="App">
-      <Homepage pagina={location.pathname} />
+      <Homepage page={location.pathname} />
       <Switch>
-        <Route exact path='/' children={<Events />} />
+        {/* <Route exact path='/' children={<Events />} />
         
         <Route path='/sports/:id' children={<Sports />} />
-        <Route path='/events/:id' children={<Events />} />
+        <Route path='/events/:id' children={<Events />} /> */}
       </Switch>
       
     </div>

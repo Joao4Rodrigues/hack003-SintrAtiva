@@ -3,13 +3,14 @@ import {
     Link
 } from "react-router-dom";
 
-function Homepage() {
+function Homepage({page}) {
     const [sports, setSports] = useState([])
 
     async function fetchSports() {
-        const res = await fetch('/api/sports')
+        const res = await fetch('/api/sport')
         const resBody = await res.json();
         setSports(resBody.sports)
+        console.log(resBody.sports)
     }
     useEffect(() => {
         fetchSports()
@@ -25,9 +26,8 @@ function Homepage() {
                         <div
                             key={sport._id}
                         >
-                            <Link to={`/sports/${sport._id}`}>
-                                <button>{sport.name}</button>
-                            </Link>
+                           <button>{sport.name}</button>
+                            
                         </div>
                     ))
                 }

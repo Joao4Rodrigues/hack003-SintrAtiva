@@ -61,6 +61,15 @@ async function getSport(sport) {
     return res;
 }
 
+async function getSports() {
+    const collection = await getCollection(DB_NAME, 'sports')
+    const sports = await collection.find({}, {
+        projection: {name: 1}
+
+    }).sort({name: 1}).toArray()
+    return sports;
+}
+
 async function insertComment(comment) {
     const collection = await getCollection(DB_NAME, "comments")
     const res = await collection.insertOne(comment)
@@ -84,7 +93,7 @@ module.exports = {
     getUser,
     insertSports,
     getSport,
-    getSport,
+    getSports,
     insertComment,
     getComment,
     getComments,
