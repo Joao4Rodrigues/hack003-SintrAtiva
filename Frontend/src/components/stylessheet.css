@@ -1,0 +1,55 @@
+
+
+.mainButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.events {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+fieldset {
+   margin-left: 100px;
+}
+
+.homepage {
+    
+    font-size: 35px;
+}
+
+.homeButton {
+    border: none;
+    background-color: transparent;
+}
+
+.iconBB {
+    font-size: 50px;
+    color: orange;
+}
+
+.iconFB {
+    font-size: 50px;
+    
+}
+
+.iconVB {
+    font-size: 50px;
+    color: royalblue;
+}
+
+.iconTN {
+    font-size: 50px;
+    color: yellowgreen;
+}
+
+.sports {
+    margin: 30px;
+    width: 100px;
+    border: solid thin;
+    border-radius: 15px;
+    background-color: rgb(249, 245, 239);
+}
