@@ -1,4 +1,5 @@
 const mongodb = require('mongodb');
+const { ObjectId } = require("mongodb");
 /* const bcrypt = require('bcrypt');
 const saltRounds = 10; */
 
@@ -55,12 +56,6 @@ async function insertSports(sport) {
     return res.insertId;
 }
 
-async function getSport(sport) {
-    const collection = await getCollection(DB_NAME, "sports")
-    const res = await collection.findOne({name: sport})
-    return res;
-}
-
 async function getSports() {
     const collection = await getCollection(DB_NAME, 'sports')
     const sports = await collection.find({}, {
@@ -68,6 +63,12 @@ async function getSports() {
 
     }).sort({name: 1}).toArray()
     return sports;
+}
+async function getSportById(id) {
+    const collection = await getCollection(DB_NAME, "sports");
+
+    const sport = await collection.findOne({ _id: ObjectId(id) })
+    return sport;
 }
 
 async function insertComment(comment) {
@@ -87,15 +88,26 @@ async function getComment(comment_id) {
     const res = await collection.findOne({_id: mongodb.ObjectId(comment_id)})
     return res;
 }
+async function search(text) {
+    const collection = await getCollection(DB_NAME, 'sports')
+    const sports = await collection.find({
+            name: { $regex: `.*${text}.*`, $options: 'i' } 
+        
+    }).toArray()
 
+    return {
+        sports
+    }
+}
 module.exports = {
     insertUser,
     getUser,
     insertSports,
-    getSport,
     getSports,
     insertComment,
     getComment,
     getComments,
-    closeConnection
+    closeConnection,
+    getSportById,
+    search
 }

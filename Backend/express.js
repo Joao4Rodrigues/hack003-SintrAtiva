@@ -2,8 +2,7 @@ const express = require('express');
  const {
     insertUser,
     getUser,
-    insertSports,
-    getSport,
+    getSportById,
     getSports,
     insertComment,
     getComment,
@@ -31,6 +30,13 @@ server.post('/api/user', async (req, res) => {
     res.status(200).json({ user });
 })
 
+server.get("/api/search", async (req, res) => { //searchbar
+    if (req.query.search)  {
+        res.status(200).json(await search(req.query.search))
+    } else {
+        res.sendStatus(200)
+    }
+})
 
 
 server.get('/api/sport', async (req, res) => {
@@ -38,10 +44,18 @@ server.get('/api/sport', async (req, res) => {
     res.status(200).json({ sports: await getSports()});
 })
 
-server.get('/api/comment/:id', async (req, res) => {
-    const comment_id = await getComment(req.params.id);
-    res.status(200).json({ comment_id });
+server.get('/api/sport/:id', async (req, res) => {
+    console.log(req.params)
+    const sport = await getSportById(req.params.id)
+    if (sport) {
+        res.status(200).json({
+            sport: sport
+        })
+    } else {
+        res.status(404).send("Não foi encontrado")
+    }
 })
+
 
 server.get('/api/comment', async (req, res) => {
     const comments = await getComments(req.body);

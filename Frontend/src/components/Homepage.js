@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
 import {
-    Link
+    Link, useHistory 
 } from "react-router-dom";
+import Search from "./SearchBar";
 
-function Homepage({page}) {
+
+function Homepage() {
     const [sports, setSports] = useState([])
 
     async function fetchSports() {
@@ -18,7 +20,7 @@ function Homepage({page}) {
 
     return (
         <>
-            <img height='100px'src='/SintrAtiva.png' />
+            <Search />
             <h2>DESPORTOS</h2>
             <div>
                 {
@@ -26,13 +28,25 @@ function Homepage({page}) {
                         <div
                             key={sport._id}
                         >
+                            <Link to={`/sports/${sport._id}`}>
                            <button>{sport.name}</button>
-                            
+                           </Link>
                         </div>
                     ))
                 }
             </div>
+            <div>
+                <Events />
+            </div>
         </>
+    )
+}
+
+function Events() {
+    return (
+        <div>
+            <h2 >Eventos</h2>
+        </div>
     )
 }
 
