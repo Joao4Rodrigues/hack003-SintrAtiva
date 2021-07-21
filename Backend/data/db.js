@@ -45,7 +45,7 @@ async function insertUser(user) {
 
 async function getUser(user_id) {
     const collection = await getCollection(DB_NAME, "users")
-    const res = await collection.FindOne({_id: mongodb.ObjectId(user_id)})
+    const res = await collection.findOne({_id: mongodb.ObjectId(user_id)})
     return res;
 }
 
@@ -58,6 +58,12 @@ async function insertSports(sport) {
 async function getSport(sport) {
     const collection = await getCollection(DB_NAME, "sports")
     const res = await collection.findOne({name: sport})
+    return res;
+}
+
+async function getSports() {
+    const collection = await getCollection(DB_NAME, "sports")
+    const res = await collection.find().toArray()
     return res;
 }
 
@@ -85,6 +91,7 @@ module.exports = {
     insertSports,
     getSport,
     getSport,
+    getSports,
     insertComment,
     getComment,
     getComments,
