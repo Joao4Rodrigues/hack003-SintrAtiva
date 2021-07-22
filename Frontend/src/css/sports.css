@@ -1,5 +1,5 @@
-.Football-container {
-    position: absolute;
+.Futebol-container {
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -14,7 +14,7 @@
     align-items: center;
 }
 
-.Basketball-container {
+.Basquetebol-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -30,7 +30,7 @@
     align-items: center;
 }
 
-.Tennis-container {
+.Ténis-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -46,7 +46,7 @@
     align-items: center;
 }
 
-.Volley-container {
+.Voleibol-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -73,8 +73,8 @@
     padding-right: 5px;
     padding-top: 1px;
     padding-bottom: 1px;
-    border-radius: 20px;
-    background-color: aliceblue;
-    max-width: 200px;
+    /* border-radius: 10px; */
+    background-color: rgb(206, 222, 235);
+    width: 300px;
     margin-bottom: 7px;
 }

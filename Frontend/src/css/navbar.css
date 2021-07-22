@@ -14,9 +14,13 @@
 .homeButton {
     border: none;
     background-color: transparent;
+    position: fixed;
+    bottom: 40px;
+    right: 40%; 
     
 }
 
 .homeIcon {
     font-size: 35px;
+
 }

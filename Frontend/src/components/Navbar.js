@@ -12,7 +12,6 @@ function NavBar() {
             <img height='100px' src='/SintrAtiva.png' />
             <div>
                 <Link to="/"><button className='homeButton'><BsFillHouseDoorFill className='homeIcon' /><br />Homepage</button></Link>
-                
             </div>
         </>
     )

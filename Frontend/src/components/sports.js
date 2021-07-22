@@ -41,10 +41,7 @@ function Sports() {
 
     return (
         <div className={`${sport.name}-container`}>
-          <br />
-          <br />
-          <br />
-          <br />
+          
         <h2>Feed de {sport.name}</h2>
             <p>{sport.name} - tentei meter aqui um ícone relacionado com o desporto escolhido, mas não consegui</p>
             <h2>Comentários - e se em vez de comentários fosse publicações?</h2>

@@ -20,8 +20,10 @@ function Homepage() {
     }, [])
 
     return (
-        <>
-            <Search />
+    <>
+    <Search />
+        <div className='homeContainer' style={{backgroundImage: ''}}>
+            
             <div className="sports-sector">
             <h2>Desportos</h2>
             <div className="sports-sections">
@@ -39,6 +41,7 @@ function Homepage() {
             <div className="event-section">
                 <Events />
             </div>
+        </div>
         </>
     )
 }

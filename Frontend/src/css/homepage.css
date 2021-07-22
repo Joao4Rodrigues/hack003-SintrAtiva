@@ -4,8 +4,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     width: 100vw;
-    height: 23rem;
-    margin-top: 10rem;
+    height: 20rem;
+    margin-top: 10px;
 }
 
 .sports-sector h2{
@@ -23,7 +23,7 @@
     height: 15rem;
     grid-template-columns: 200px 150px;
   display: grid;
-  margin: auto;
+  /* margin-top: px; */
 }
 
 .sport-btn {
@@ -40,7 +40,13 @@
     display: flex;
     flex-direction: row;
     width: 100vw;
-    height: 15rem;
+    height: 13rem;
     background-color: rgb(245, 245, 245)
 }
 
+.homeContainer {
+    /* background-image: url(SintrAtiva.png); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -90;
+}
