@@ -5,6 +5,7 @@ import React from 'react';
 import Moment from 'react-moment';
 import '../css/sports.css';
 import * as FiIcons from "react-icons/fi";
+import { RiHeartAddFill } from "@react-icons/all-files/ri/RiHeartAddFill";
 
 function Sports() {
   const params = useParams();
@@ -41,11 +42,12 @@ function Sports() {
 
     return (
         <div className={`${sport.name}-container`}>
+           
           <br />
           <br />
           <br />
           <br />
-        <h2>Feed de {sport.name}</h2>
+        <h2>Feed de {sport.name}</h2> <button><RiHeartAddFill size={25}/></button>
             <p>{sport.name} - tentei meter aqui um ícone relacionado com o desporto escolhido, mas não consegui</p>
             <h2>Comentários - e se em vez de comentários fosse publicações?</h2>
           <AddComment onAdd={async () => await fetchComments()} id={sport._id} />

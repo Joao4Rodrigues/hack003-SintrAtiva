@@ -21,7 +21,7 @@ function App() {
         <Route exact path='/' children ={<Homepage/>}/>
         <Route path='/sports/:id' children={<Sports />}/>
         <Route path="/search" children={<SearchResults />} />
-        {/* <Route path='/events/:id' children={<Events />} /> */}
+        <Route path='/events/:id' children={<Events />} />
       </Switch>
       
     </div>

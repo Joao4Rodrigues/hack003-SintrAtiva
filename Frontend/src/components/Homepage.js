@@ -1,6 +1,6 @@
-import { useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import {
-    Link, useHistory 
+    Link
 } from "react-router-dom";
 import "../css/homepage.css"
 import Search from "./SearchBar";
@@ -23,18 +23,18 @@ function Homepage() {
         <>
             <Search />
             <div className="sports-sector">
-            <h2>Desportos</h2>
-            <div className="sports-sections">
-            {
-                    sports.map(sport => (
-                        <Link to={`/sports/${sport._id}`}>
-                           <button className="sport-btn">{sport.name}</button>
-                        </Link>
+                <h2>Desportos</h2>
+                <div className="sports-sections">
+                    {
+                        sports.map(sport => (
+                            <Link to={`/sports/${sport._id}`}>
+                                <button className="sport-btn">{sport.name}</button>
+                            </Link>
 
-                    ))
-                }
-            </div>
-                
+                        ))
+                    }
+                </div>
+
             </div>
             <div className="event-section">
                 <Events />
@@ -44,7 +44,7 @@ function Homepage() {
 }
 
 
-function Events(){
+function Events() {
     const [events, setEvents] = useState([])
     async function fetchEvents() {
         const res = await fetch('/api/events')
@@ -67,18 +67,14 @@ function Events(){
                         >
                             <h4>{event.event}</h4>
                             <h5>{event.date}</h5>
-                            <img width='300px' src={event.image} />
-                            
-                            {/* <Link to={'/events'}></Link> */}
-
-                            {/* <Link to={`/sports/${sport._id}`}>
-                           
-                           </Link> */}
+                            <Link to={`/events/${event._id}`}>
+                                <img width='300px' src={event.image} />
+                            </Link>
                         </div>
                     ))
                 }
             </div>
-            
+
         </>
     )
 }

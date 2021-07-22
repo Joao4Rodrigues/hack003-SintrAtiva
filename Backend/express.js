@@ -6,7 +6,8 @@ const express = require('express');
     getSports,
     findComments,
     addComment,
-    getEvents
+    getEvents,
+    findEventById
 } = require('./data/db');
 
 const server = express();
@@ -80,6 +81,17 @@ server.get('/api/events', async (req, res) => {
     res.status(200).json({ events: await getEvents()});
 })
 
+server.get('/api/:id/events', async (req, res) => {
+    
+    const event = await findEventById(req.params.id)
+    if (event) {
+        res.status(200).json({
+           event: event
+        })
+    } else {
+        res.status(404).send("Não foi encontrado")
+    }
+})
 server.listen(PORT, () => console.log('À escuta em ' + PORT));
 
 

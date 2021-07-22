@@ -116,6 +116,13 @@ async function search(text) {
         sports
     }
 }
+async function findEventById(id) {
+    const collection = await getCollection(DB_NAME, "events");
+
+    const event = await collection.findOne({ _id: ObjectId(id) })
+
+    return event;
+}
 module.exports = {
     insertUser,
     insertEvents,
@@ -128,5 +135,6 @@ module.exports = {
     closeConnection,
     getSportById,
     search,
-    getEvents
+    getEvents,
+    findEventById
 }
