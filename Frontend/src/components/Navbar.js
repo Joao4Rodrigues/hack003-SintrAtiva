@@ -12,9 +12,9 @@ function NavBar() {
         <>
             <img height='100px' src='/SintrAtiva.png' />
             <div className='homeBar'>
-                <button><MdFavorite size ={35}/>Favoritos</button>
-                <Link to="/"><button ><BsFillHouseDoorFill  size ={35}/><br />Homepage</button></Link>
-                <button><MdEvent size ={35}/>Eventos</button>
+                <button className='navButtons'><MdFavorite size ={30}/><br />Favoritos</button>
+                <Link to="/"><button className='navButtons'><BsFillHouseDoorFill  size ={30}/><br />Homepage</button></Link>
+                <button className='navButtons'><MdEvent size ={30}/><br />Eventos</button>
                 
             </div>
         </>

@@ -22,10 +22,10 @@ function Homepage() {
     return (
     <>
     <Search />
-        <div className='homeContainer' style={{backgroundImage: 'url(homeBG.jpg)'}}>
-            
-            <div className="sports-sector">
-                <h2>Desportos</h2>
+        <div className='homeContainer' >
+            <h2 className='SportsTitle'>Desportos</h2>
+            <div className="sports-sector" style={{backgroundImage: 'url(homeBG.jpg)'}}>
+                
                 <div className="sports-sections">
                     {
                         sports.map(sport => (
@@ -38,10 +38,10 @@ function Homepage() {
                 </div>
 
             </div>
-            <div className="event-section">
-                <Events />
-            </div>
-        </div>
+            {/* <div className="event-section">
+                
+            </div> */}
+        </div><Events />
         </>
     )
 }
@@ -60,25 +60,25 @@ function Events() {
     }, [])
 
     return (
-        <>
-            <h2>Eventos</h2>
-            <div>
+        <div className='eventsGeneral'>
+            <h2 className='eventsTitle'>Eventos</h2>
+            <div >
                 {
                     events.map(event => (
-                        <div
+                        <div className='eventMapping'
                             key={event._id}
                         >
                             <h4>{event.event}</h4>
                             <h5>{event.date}</h5>
                             <Link to={`/events/${event._id}`}>
-                                <img width='300px' src={event.image} />
+                                <img className='eventIMG' width='300px' src={event.image} />
                             </Link>
                         </div>
                     ))
                 }
             </div>
 
-        </>
+        </div>
     )
 }
 

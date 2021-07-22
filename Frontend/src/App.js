@@ -7,7 +7,7 @@ import {
 }
 from 'react-router-dom';
 import NavBar from './components/Navbar';
-import Events from './components/Events';
+import Event from './components/Events';
 import Sports from './components/sports';
 import Homepage from './components/Homepage';
 import SearchResults from './components/SearchResults';
@@ -21,7 +21,7 @@ function App() {
         <Route exact path='/' children ={<Homepage/>}/>
         <Route path='/sports/:id' children={<Sports />}/>
         <Route path="/search" children={<SearchResults />} />
-        <Route path='/events/:id' children={<Events />} />
+        <Route path='/events/:id' children={<Event />} />
       </Switch>
       
     </div>

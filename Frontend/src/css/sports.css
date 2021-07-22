@@ -78,3 +78,8 @@
     width: 300px;
     margin-bottom: 7px;
 }
+
+.favIcon {
+    border: none;
+    background-color: transparent;
+}

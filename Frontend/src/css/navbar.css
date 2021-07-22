@@ -13,11 +13,17 @@
 
 
 
-.button {
-    background-color: transparent;
+.navButtons {
+    border: none;
+    background: none;
+    padding: 10px;
+    color: white;
 
 }
 .homeBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
     width: 100%;
     border: none;
     background-color: rgb(48, 48, 48);

@@ -5,7 +5,7 @@ import Search from "./SearchBar";
 import { BiListPlus } from "@react-icons/all-files/bi/BiListPlus";
 
 
-function Events() {
+function Event() {
     const params = useParams();
     const [event, setEvent] = useState(false)
     const [erro, setErro] = useState("")
@@ -51,4 +51,4 @@ function Events() {
    
 }
 
-export default Events;
+export default Event;

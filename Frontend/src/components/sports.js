@@ -44,10 +44,10 @@ function Sports() {
         <div className={`${sport.name}-container`}>
            
           
-        <h2>Feed de {sport.name}</h2> <button><RiHeartAddFill size={25}/></button>
-          
-            <p>{sport.name} - tentei meter aqui um ícone relacionado com o desporto escolhido, mas não consegui</p>
-            <h2>Comentários - e se em vez de comentários fosse publicações?</h2>
+        <h2>Feed de {sport.name}</h2> <button className='favIcon'><RiHeartAddFill size={25}/></button>
+          <br />
+            {/* <p>{sport.name} - tentei meter aqui um ícone relacionado com o desporto escolhido, mas não consegui</p>
+            <h2>Comentários - e se em vez de comentários fosse publicações?</h2> */}
           <AddComment onAdd={async () => await fetchComments()} id={sport._id} />
           <br />
           <Comments comments={comments} id={sport._id} />

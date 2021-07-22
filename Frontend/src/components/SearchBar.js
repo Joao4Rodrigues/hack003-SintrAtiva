@@ -2,7 +2,8 @@ import { useState} from "react";
 import {
  useHistory 
 } from "react-router-dom";
-import { BiSearchAlt2 } from "react-icons/bi";
+import { BiSearchAlt2 } from "react-icons/bi"; 
+import "../css/homepage.css"
 
 function Search() {
     const history = useHistory()
@@ -31,8 +32,9 @@ function Search() {
     }
 
     return (
-        <div>
+        <div className='searchBarANDButton'>
             <input
+                className='searchBar'
                 onKeyPress={handleKeyEnter}
                 type="text"
                 id="search"
@@ -40,7 +42,7 @@ function Search() {
                 onChange={onInputChange}
                 placeholder="Desporto"
             />
-            <button onClick={onSearch}><BiSearchAlt2 /></button>
+            <button className='searchButton' onClick={onSearch}><BiSearchAlt2 className='searchIcon'/></button>
         </div>
 
     )
