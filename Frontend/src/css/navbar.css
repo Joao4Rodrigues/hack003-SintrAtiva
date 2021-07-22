@@ -11,16 +11,17 @@
     height: 10rem;
 }
 
-.homeButton {
-    border: none;
+
+
+.button {
     background-color: transparent;
+
+}
+.homeBar{
+    width: 100%;
+    border: none;
+    background-color: rgb(48, 48, 48);
     position: fixed;
     bottom: 40px;
-    right: 40%; 
-    
-}
-
-.homeIcon {
-    font-size: 35px;
-
+   
 }
