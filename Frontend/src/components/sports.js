@@ -4,6 +4,7 @@ import { Formik, Field } from 'formik';
 import React from 'react';
 import Moment from 'react-moment';
 import '../css/sports.css';
+import * as FiIcons from "react-icons/fi";
 
 function Sports() {
   const params = useParams();
@@ -40,13 +41,17 @@ function Sports() {
 
     return (
         <div className={`${sport.name}-container`}>
-
+          <br />
+          <br />
+          <br />
+          <br />
         <h2>Feed de {sport.name}</h2>
-            <p>{sport.name}</p>
-
-          
-          <Comments comments={comments} id={sport._id} />
+            <p>{sport.name} - tentei meter aqui um ícone relacionado com o desporto escolhido, mas não consegui</p>
+            <h2>Comentários - e se em vez de comentários fosse publicações?</h2>
           <AddComment onAdd={async () => await fetchComments()} id={sport._id} />
+          <br />
+          <Comments comments={comments} id={sport._id} />
+          
       </div>
     )
 
@@ -57,19 +62,20 @@ function Sports() {
 function Comments({ id, comments }) {
   return (
     <>
-      <h2>Comentários</h2>
+      {/* <h2>Comentários - e se em vez de comentários fosse publicações?</h2> - ideia: passar isto para a função de cima para ser renderizado antes do input de texto */}
       <div >
         {
           comments.map(comment => (
             <div
+              className='commentsDiv'
               key={comment._id}
             >
-              <p >{comment.comment} </p>
-              <p ><Moment date={comment.date} format="DD/MM/YYYY" /></p>
+              <p >{comment.comment} - <Moment date={comment.date} format="DD/MM/YYYY" /></p>
             </div>
           ))
         }
       </div>
+      <br />
     </>
 
   )
@@ -105,10 +111,10 @@ function AddComment({ id, onAdd }) {
                   label="Comment"
                   type="text"
                   name="comment"
-                  placeholder="Escreva aqui o seu comentário"
-                /><br></br>
+                  placeholder="Escreva aqui o seu comentário/publicação?"
+                />
 
-                <button variant="primary" type="submit">Submeter</button>
+                <button className='submitButton' variant="primary" type="submit"><FiIcons.FiSend /> Submeter</button>
               </form>
             )
           }
@@ -116,8 +122,9 @@ function AddComment({ id, onAdd }) {
       </div>
     </>
   )
-
 }
+
+
 
 
 

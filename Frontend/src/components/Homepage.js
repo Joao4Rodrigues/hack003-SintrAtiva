@@ -23,7 +23,7 @@ function Homepage() {
         <>
             <Search />
             <div className="sports-sector">
-            <h2>DESPORTOS</h2>
+            <h2>Desportos</h2>
             <div className="sports-sections">
             {
                     sports.map(sport => (
@@ -67,8 +67,10 @@ function Events(){
                         >
                             <h4>{event.event}</h4>
                             <h5>{event.date}</h5>
-                            <img src={event.image} />
+                            <img width='300px' src={event.image} />
                             
+                            {/* <Link to={'/events'}></Link> */}
+
                             {/* <Link to={`/sports/${sport._id}`}>
                            
                            </Link> */}

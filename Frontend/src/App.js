@@ -8,7 +8,7 @@ import {
 from 'react-router-dom';
 import NavBar from './components/Navbar';
 import Events from './components/Events';
-import Sports from './components/Sports';
+import Sports from './components/sports';
 import Homepage from './components/Homepage';
 import SearchResults from './components/SearchResults';
 

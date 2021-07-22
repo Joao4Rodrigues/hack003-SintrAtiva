@@ -62,3 +62,19 @@
     align-items: center;
 }
 
+.submitButton {
+    border: none;
+    background-color: transparent;
+}
+
+.commentsDiv{
+    border: solid thin black;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    border-radius: 20px;
+    background-color: aliceblue;
+    max-width: 200px;
+    margin-bottom: 7px;
+}

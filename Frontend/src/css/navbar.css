@@ -10,3 +10,13 @@
     width: 100vw;
     height: 10rem;
 }
+
+.homeButton {
+    border: none;
+    background-color: transparent;
+    
+}
+
+.homeIcon {
+    font-size: 35px;
+}
