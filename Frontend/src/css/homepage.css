@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;500;600&display=swap');
 .sports-sector {
     display: flex;
     flex-direction: row;
@@ -10,6 +10,7 @@
     background-repeat: no-repeat;
     z-index: -90;
 }
+
 
 /* .sports-sector h2{
     text-indent: 1rem;
@@ -32,11 +33,11 @@
     border: 0;
     border-radius: 7px;
     width: 100px;
-    height: 100px;
+    height: 60px;
     background-color:rgb(58, 51, 51);
     color: white;
-    margin-top: 20px;
-    margin-bottom: 20px;
+   margin-top: 20px;
+   margin-bottom: 20px;
     
 }
 
@@ -102,4 +103,7 @@
 
 .eventIMG {
     border-radius: 7px;
+}
+h2{
+    font-family: 'Raleway', sans-serif;;
 }

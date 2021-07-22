@@ -24,7 +24,7 @@ function Homepage() {
     <Search />
         <div className='homeContainer' >
             <h2 className='SportsTitle'>Desportos</h2>
-            <div className="sports-sector" style={{backgroundImage: 'url(homeBG.jpg)'}}>
+            <div className="sports-sector" style={{backgroundImage: 'url(runner.jpeg)'}}>
                 
                 <div className="sports-sections">
                     {
