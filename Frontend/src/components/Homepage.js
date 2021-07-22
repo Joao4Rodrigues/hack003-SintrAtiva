@@ -22,7 +22,7 @@ function Homepage() {
     return (
     <>
     <Search />
-        <div className='homeContainer' style={{backgroundImage: ''}}>
+        <div className='homeContainer' style={{backgroundImage: 'url(homeBG.jpg)'}}>
             
             <div className="sports-sector">
                 <h2>Desportos</h2>
