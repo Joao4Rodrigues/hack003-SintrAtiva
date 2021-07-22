@@ -7,7 +7,8 @@ const express = require('express');
     findComments,
     addComment,
     getEvents,
-    findEventById
+    findEventById,
+    search
 } = require('./data/db');
 
 const server = express();
@@ -33,7 +34,8 @@ server.post('/api/user', async (req, res) => {
 
 server.get("/api/search", async (req, res) => { //searchbar
     if (req.query.search)  {
-        res.status(200).json(await search(req.query.search))
+        console.log(req.query)
+                res.status(200).json(await search(req.query.search))
     } else {
         res.sendStatus(200)
     }

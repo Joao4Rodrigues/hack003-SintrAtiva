@@ -4,7 +4,7 @@ import React from "react";
 import Search from "./SearchBar";
 import { BiListPlus } from "@react-icons/all-files/bi/BiListPlus";
 import "../css/events.css"
-
+import "../css/homepage.css"
 
 function Event() {
     const params = useParams();
@@ -33,7 +33,7 @@ function Event() {
     }, [params])
 
      return (
-         <div>
+         <div className='eventsBackground' style={{backgroundImage: 'url(calendar.jpeg)'}}>
             <Search />
             <h2></h2><button className='addToCalendar'><BiListPlus size={45} /><br />Adicionar à agenda</button>
             {
@@ -41,7 +41,7 @@ function Event() {
                             key={event._id}
                         >
                             <h4>{event.event}</h4>
-                           <img width='300px' src={event.image} />
+                           <img className='eventIMG' width='300px' src={event.image} />
                            <h5>{event.date}</h5>
                            <p>{event.info}</p>
                         </div>

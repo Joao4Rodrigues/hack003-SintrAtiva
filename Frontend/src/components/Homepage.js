@@ -21,12 +21,14 @@ function Homepage() {
 
     return (
     <>
+    <h4>Bem-vinda, Joana!</h4>
     <Search />
         <div className='homeContainer' >
             <h2 className='SportsTitle'>Desportos</h2>
-            <div className="sports-sector" style={{backgroundImage: 'url(runner.jpeg)'}}>
-                
+            <div className="sports-sector" style={{backgroundImage: 'url(runnerTransp.png)'}}>
+                <p className='chooseText'>Escolhe o teu desporto favorito</p>
                 <div className="sports-sections">
+
                     {
                         sports.map(sport => (
                             <Link to={`/sports/${sport._id}`}>

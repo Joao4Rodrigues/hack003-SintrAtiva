@@ -10,8 +10,9 @@
     z-index: -90;
     display:flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    padding-top: 100px;
 }
 
 .Basquetebol-container {
@@ -26,8 +27,9 @@
     z-index: -90;
     display:flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    padding-top: 100px;
 }
 
 .Ténis-container {
@@ -42,8 +44,9 @@
     z-index: -90;
     display:flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    padding-top: 100px;
 }
 
 .Voleibol-container {
@@ -58,25 +61,29 @@
     z-index: -90;
     display:flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    padding-top: 100px;
 }
 
 .submitButton {
     border: none;
     background-color: transparent;
-}
+    align-items: center;
+    
+} 
 
 .commentsDiv{
-    border: solid thin black;
+    border: solid thin rgb(198, 198, 198);
     padding-left: 5px;
     padding-right: 5px;
     padding-top: 1px;
     padding-bottom: 1px;
     /* border-radius: 10px; */
-    background-color: rgb(206, 222, 235);
+    background-color: rgb(247, 244, 241);
     width: 300px;
     margin-bottom: 7px;
+    border-radius: 7px;
 }
 
 .favIcon {
@@ -91,3 +98,19 @@
 .commentssss {
     position: fixed;
 } */
+
+.postBox {
+    height: 50px;
+    width: 270px;
+    border: solid thin rgb(198, 198, 198);
+    border-radius: 7px;
+    
+}
+
+.form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    
+}

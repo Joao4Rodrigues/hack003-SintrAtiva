@@ -3,9 +3,14 @@
     background-color: transparent;
 }
 
-/* .eventsBackground {
-    background-image: url(calendar.jpeg);
+.eventsBackground {
+    /* background-image: url(calendar.jpeg); */
     background-size: cover;
     background-repeat: no-repeat;
     z-index: -90;
-} */
+}
+
+.eventIMG {
+    border-radius: 7px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.4);
+}

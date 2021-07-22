@@ -46,6 +46,9 @@ function Sports() {
 			<div className='feed'>
 				<h2>Feed de {sport.name}</h2> <button className='favIcon'><RiHeartAddFill size={25} /></button>
 				<br />
+				<br />
+				
+				
 			</div>
 
 			{/* <p>{sport.name} - tentei meter aqui um ícone relacionado com o desporto escolhido, mas não consegui</p>
@@ -112,15 +115,17 @@ function AddComment({ id, onAdd }) {
 				>
 					{
 						({ handleSubmit, touched, errors }) => (
-							<form onSubmit={handleSubmit}>
+							<form className='form' onSubmit={handleSubmit}>
 								<Field
+								className='postBox'
 									label="Comment"
 									type="text"
 									name="comment"
-									placeholder="Escreva aqui o seu comentário/publicação?"
+									placeholder="Escreva aqui a sua publicação"
+									
 								/>
 
-								<button className='submitButton' variant="primary" type="submit"><FiIcons.FiSend /> Submeter</button>
+								<button className='submitButton' variant="primary" type="submit"><FiIcons.FiSend size={23}/></button>
 							</form>
 						)
 					}

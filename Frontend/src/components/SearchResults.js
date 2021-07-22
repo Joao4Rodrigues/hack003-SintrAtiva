@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import queryString from "query-string"
 import Search from "./SearchBar";
+import '../css/searchresults.css';
 
 
 function SearchResults() {
@@ -39,7 +40,7 @@ function SearchResults() {
                         key={sport._id}
                     >
                         <Link to={`/sports/${sport._id}`}>
-                        <button>{sport.name}</button>
+                        <button className='searchResultsButtons'>{sport.name}</button>
                         </Link>
                     </div>
                 )) 
