@@ -41,6 +41,8 @@ function Homepage() {
             {/* <div className="event-section">
                 
             </div> */}
+            <br />
+            <br />
         </div><Events />
         </>
     )
@@ -61,6 +63,7 @@ function Events() {
 
     return (
         <div className='eventsGeneral'>
+            
             <h2 className='eventsTitle'>Eventos</h2>
             <div >
                 {
@@ -68,6 +71,7 @@ function Events() {
                         <div className='eventMapping'
                             key={event._id}
                         >
+                            <br />
                             <h4>{event.event}</h4>
                             <h5>{event.date}</h5>
                             <Link to={`/events/${event._id}`}>

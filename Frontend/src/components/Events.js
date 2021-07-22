@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import React from "react";
 import Search from "./SearchBar";
 import { BiListPlus } from "@react-icons/all-files/bi/BiListPlus";
+import "../css/events.css"
 
 
 function Event() {
@@ -32,9 +33,9 @@ function Event() {
     }, [params])
 
      return (
-        <div>
+         <div>
             <Search />
-            <h2>Evento</h2><button><BiListPlus size={25} /></button>
+            <h2></h2><button className='addToCalendar'><BiListPlus size={45} /><br />Adicionar à agenda</button>
             {
                         <div
                             key={event._id}
